@@ -43,8 +43,13 @@ class ResourceParser{
     public static function getTitle($resource){
         $result = $resource->xpath('./title');
         return $result[0];
-    }        
-
+    }      
+    
+    public static function getContent($resource){
+        $result = $resource->xpath('./content');
+        return $result[0];      
+    }
+    
     
     public static function getTapCapability($resource){
         $result = $resource->xpath('./capability[@standardID="ivo://vamdc/std/VAMDC-TAP"]');
@@ -55,6 +60,20 @@ class ResourceParser{
     
     public static function getTapAccessUrl($resource){
         $result = $resource->xpath('./capability[@standardID="ivo://vamdc/std/VAMDC-TAP"]/interface/accessURL');
+        if($result != false)
+            return $result[0][0];
+        return null;        
+    }
+    
+    public static function getCapabilities($resource){
+        $result = $resource->xpath('./capability[@standardID="ivo://ivoa.net/std/VOSI#capabilities"]');
+        if($result != false)
+            return $result;
+        return null;        
+    }
+    
+    public static function getCapabilitiesAccessUrl($resource){
+        $result = $resource->xpath('./capability[@standardID="ivo://ivoa.net/std/VOSI#capabilities"]/interface/accessURL');
         if($result != false)
             return $result[0][0];
         return null;        
