@@ -1,0 +1,27 @@
+SearchResponse Search(Search $Search)
+SearchResponse KeywordSearch(KeywordSearch $KeywordSearch)
+ResolveResponse GetResource(GetResource $GetResource)
+ResolveResponse GetIdentity(UNKNOWN $GetIdentity)
+XQuerySearchResponse XQuerySearch(XQuerySearch $XQuerySearch)
+
+
+struct Resource {
+ Validation validationLevel;
+ token title;
+ ShortName shortName;
+ IdentifierURI identifier;
+ Curation curation;
+ Content content;
+ dateTime created;
+ dateTime updated;
+ anonymous3 status;
+}
+
+struct VOResources {
+ Resource Resource;
+ IdentifierURI identifier;
+ positiveInteger from;
+ positiveInteger numberReturned;
+ boolean more;
+}
+

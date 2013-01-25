@@ -1,0 +1,1385 @@
+<soap:Envelope xmlns:soap="http://schemas.xmlsoap.org/soap/envelope/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"><soap:Body>
+<riw:SearchResponse xmlns:riw="http://www.ivoa.net/wsdl/RegistrySearch/v1.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<ri:VOResources xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xsi:schemaLocation="http://www.ivoa.net/xml/RegistryInterface/v1.0 http://software.astrogrid.org/schema/registry/RegistryInterface/v1.0/RegistryInterface.xsd http://www.ivoa.net/xml/VOResource/v1.0 http://software.astrogrid.org/schema/vo-resource-types/VOResource/v1.0/VOResource.xsd " from="1" more="false" numberReturned="7">
+<ri:Resource xmlns:cea="http://www.ivoa.net/xml/CEA/v1.0rc1" xmlns:agr="urn:astrogrid:schema:RegistryStoreResource:v1" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.0" xmlns:va="http://www.ivoa.net/xml/VOApplication/v1.0rc1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" created="2012-02-15T18:53:46" status="active" updated="2012-09-17T09:42:45" xsi:type="vs:CatalogService" xsi:schemaLocation="http://www.ivoa.net/xml/RegistryInterface/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/registry/RegistryInterface/v1.0/RegistryInterface.xsd http://www.ivoa.net/xml/VOResource/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VOResource/v1.0/VOResource.xsd  http://www.ivoa.net/xml/VODataService/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VODataService/v1.0/VODataService.xsd http://www.ivoa.net/xml/VOTable/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-formats/VOTable/v1.0/VOTable.xsd">
+    <title xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">BASECOL: VAMDC-TAP interface</title>
+    <identifier xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">ivo://vamdc/basecol/vamdc-tap_11.12</identifier>
+    <curation xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">
+        <publisher>LPMAA</publisher>
+        <creator>
+            <name />
+        </creator>
+        <contact>
+            <name>Misha Doronin</name>
+            <email>misha@doronin.org</email>
+        </contact>
+    </curation>
+    <content xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">
+        <subject />
+        <description>This database, called BASECOL is devoted to collisional ro-vibrational excitation of molecules by colliders such as atom, ion, molecule or electron. It is supervised by an international working group of molecular physicists and astrophysicits involved in the calculations and use of ro-vibrational cross-sections, in order to ensure the continuity and the quality of the database.</description>
+        <referenceURL>http://basecol.obspm.fr</referenceURL>
+        <type>Other</type>
+        <contentLevel>Research</contentLevel>
+    </content>
+    <capability xmlns:ns2="http://www.ivoa.net/xml/VOSICapabilities/v1.0" xmlns:ns3="http://www.ivoa.net/xml/VOSIAvailability/v1.0" xmlns:ns5="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" standardID="ivo://vamdc/std/VAMDC-TAP" xsi:type="ns5:VamdcTap">
+        <interface xmlns:ns6="http://www.ivoa.net/xml/VODataService/v1.0" xsi:type="ns6:ParamHTTP">
+            <accessURL use="base">http://dev.vamdc.org/basecol/tapservice_11_12/TAP/</accessURL>
+        </interface>
+        <versionOfStandards>11.12</versionOfStandards>
+        <versionOfSoftware>Java VAMDC-TAP implementation 12.05</versionOfSoftware>
+        <sampleQuery>select species where atomsymbol like '%';</sampleQuery>
+        <sampleQuery>Select * where reactanta.MoleculeStoichiometricFormula="CO" and reactantb.AtomSymbol = "H";</sampleQuery>
+        <restrictable>AtomSymbol</restrictable>
+        <restrictable>CollisionCode</restrictable>
+        <restrictable>EnvironmentTemperature</restrictable>
+        <restrictable>InchiKey</restrictable>
+        <restrictable>IonCharge</restrictable>
+        <restrictable>MoleculeStateNuclearSpinIsomer</restrictable>
+        <restrictable>MoleculeStoichiometricFormula</restrictable>
+        <restrictable>ParticleName</restrictable>
+        <restrictable>SourceYear</restrictable>
+        <restrictable>StateEnergy</restrictable>
+    </capability>
+    <capability xmlns:ns2="http://www.ivoa.net/xml/VOSICapabilities/v1.0" xmlns:ns3="http://www.ivoa.net/xml/VOSIAvailability/v1.0" standardID="ivo://ivoa.net/std/VOSI#capabilities">
+        <interface xmlns:ns5="http://www.ivoa.net/xml/VODataService/v1.0" xsi:type="ns5:ParamHTTP">
+            <accessURL use="base">http://dev.vamdc.org/basecol/tapservice_11_12/VOSI/capabilities</accessURL>
+        </interface>
+    </capability>
+    <capability xmlns:ns2="http://www.ivoa.net/xml/VOSICapabilities/v1.0" xmlns:ns3="http://www.ivoa.net/xml/VOSIAvailability/v1.0" standardID="ivo://ivoa.net/std/VOSI#availability">
+        <interface xmlns:ns5="http://www.ivoa.net/xml/VODataService/v1.0" xsi:type="ns5:ParamHTTP">
+            <accessURL use="base">http://dev.vamdc.org/basecol/tapservice_11_12/VOSI/availability</accessURL>
+        </interface>
+    </capability>
+</ri:Resource><ri:Resource xmlns:cea="http://www.ivoa.net/xml/CEA/v1.0rc1" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.0" xmlns:va="http://www.ivoa.net/xml/VOApplication/v1.0rc1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" created="2011-09-21T16:34:14" status="active" updated="2012-05-16T11:03:15" xsi:type="vs:CatalogService" xsi:schemaLocation="http://www.ivoa.net/xml/RegistryInterface/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/registry/RegistryInterface/v1.0/RegistryInterface.xsd http://www.ivoa.net/xml/VOResource/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VOResource/v1.0/VOResource.xsd  http://www.ivoa.net/xml/VODataService/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VODataService/v1.0/VODataService.xsd http://www.ivoa.net/xml/VOTable/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-formats/VOTable/v1.0/VOTable.xsd">
+    <title xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">KIDA: VAMDC-TAP interface</title>
+    <identifier xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">ivo://vamdc/KIDA/vamdc-tap</identifier>
+    <curation xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">
+        <publisher ivo-id="ivo://vamdc/KIDA">Laboratoire d'Astrophysique de Bordeaux</publisher>
+        <creator>
+            <name />
+        </creator>
+        <contact>
+            <name>Valentine Wakelam</name>
+            <email>Valentine.Wakelam@obs.u-bordeaux1.fr</email>
+        </contact>
+    </curation>
+    <content xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">
+        <subject>VAMDC-TAP KIDA</subject>
+        <description>KIDA is a database of kinetic data interesting for astrochemical (interstellar medium and planetary atmospheres) studies. In addition to the available referenced data, KIDA provides recommendations over a number of important reactions. Chemists and physicists can add their data to the database.</description>
+        <referenceURL>http://kida.obs.u-bordeaux1.fr/</referenceURL>
+        <type>Other</type>
+        <contentLevel>Research</contentLevel>
+    </content>
+    <capability xmlns:ns2="http://www.ivoa.net/xml/VOSICapabilities/v1.0" xmlns:ns3="http://www.ivoa.net/xml/VOSIAvailability/v1.0" xmlns:ns5="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" standardID="ivo://vamdc/std/VAMDC-TAP" xsi:type="ns5:VamdcTap">
+        <interface xmlns:ns6="http://www.ivoa.net/xml/VODataService/v1.0" xsi:type="ns6:ParamHTTP">
+            <accessURL use="base">http://kida-vamdc.obs.u-bordeaux1.fr/TAP-VAMDC/TAP/</accessURL>
+        </interface>
+        <versionOfStandards>11.12</versionOfStandards>
+        <versionOfSoftware>Java VAMDC-TAP implementation 12.05</versionOfSoftware>
+        <sampleQuery>select species where atomsymbol like '%';</sampleQuery>
+        <restrictable>AtomSymbol</restrictable>
+        <restrictable>CollisionCode</restrictable>
+        <restrictable>EnvironmentTemperature</restrictable>
+        <restrictable>Inchi</restrictable>
+        <restrictable>InchiKey</restrictable>
+        <restrictable>IonCharge</restrictable>
+        <restrictable>MethodCategory</restrictable>
+        <restrictable>MoleculeChemicalName</restrictable>
+        <restrictable>MoleculeStoichiometricFormula</restrictable>
+        <restrictable>ParticleName</restrictable>
+    </capability>
+    <capability xmlns:ns2="http://www.ivoa.net/xml/VOSICapabilities/v1.0" xmlns:ns3="http://www.ivoa.net/xml/VOSIAvailability/v1.0" standardID="ivo://ivoa.net/std/VOSI#capabilities">
+        <interface xmlns:ns5="http://www.ivoa.net/xml/VODataService/v1.0" xsi:type="ns5:ParamHTTP">
+            <accessURL use="base">http://kida-vamdc.obs.u-bordeaux1.fr/TAP-VAMDC/VOSI/capabilities</accessURL>
+        </interface>
+    </capability>
+    <capability xmlns:ns2="http://www.ivoa.net/xml/VOSICapabilities/v1.0" xmlns:ns3="http://www.ivoa.net/xml/VOSIAvailability/v1.0" standardID="ivo://ivoa.net/std/VOSI#availability">
+        <interface xmlns:ns5="http://www.ivoa.net/xml/VODataService/v1.0" xsi:type="ns5:ParamHTTP">
+            <accessURL use="base">http://kida-vamdc.obs.u-bordeaux1.fr/TAP-VAMDC/VOSI/availability</accessURL>
+        </interface>
+    </capability>
+</ri:Resource><ri:Resource xmlns:cea="http://www.ivoa.net/xml/CEA/v1.0rc1" xmlns:agr="urn:astrogrid:schema:RegistryStoreResource:v1" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.0" xmlns:va="http://www.ivoa.net/xml/VOApplication/v1.0rc1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" created="2011-08-24T09:12:28" status="active" updated="2012-12-04T13:52:50" xsi:type="vs:CatalogService" xsi:schemaLocation="http://www.ivoa.net/xml/RegistryInterface/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/registry/RegistryInterface/v1.0/RegistryInterface.xsd http://www.ivoa.net/xml/VOResource/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VOResource/v1.0/VOResource.xsd  http://www.ivoa.net/xml/VODataService/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VODataService/v1.0/VODataService.xsd http://www.ivoa.net/xml/VOTable/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-formats/VOTable/v1.0/VOTable.xsd">
+    <title xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">TOPbase : VAMDC-TAP interface</title>
+    <identifier xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">ivo://vamdc/TOPbase/tap-xsams</identifier>
+    <curation xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">
+        <publisher>Observatoire de Paris, LERMA</publisher>
+        <creator>
+            <name>The Opacity Project</name>
+            <logo>http://cdsweb.u-strasbg.fr/topbase/testop/home.html</logo>
+        </creator>
+        <contact>
+            <name>Nicolas Moreau - Franck Delahaye</name>
+            <email>nicolas.moreau@obspm.fr - franck.delahaye@obspm.fr</email>
+        </contact>
+    </curation>
+    <content xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">
+        <subject />
+        <description>TOPbase lists LS-coupling energy levels, gf-values and photoionization cross sections for astrophysically abundant ions (Z=1,14; Z=16; Z=18; Z=20; Z=26) computed in the Opacity Project.</description>
+        <referenceURL>http://cdsweb.u-strasbg.fr/topbase/topbase.html</referenceURL>
+        <type>Other</type>
+        <contentLevel>Research</contentLevel>
+    </content>
+    <capability xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" standardID="ivo://vamdc/std/VAMDC-TAP" xsi:type="tx:VamdcTap">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://topbase.obspm.fr/11.12/vamdc/tap/</accessURL>
+        </interface>
+        <versionOfStandards>11.12</versionOfStandards>
+        <versionOfSoftware>11.12r3</versionOfSoftware>
+        <sampleQuery>select all where  AtomNuclearCharge = 2</sampleQuery>
+        <returnable>AtomStateLifeTimeDecay</returnable>
+        <returnable>SourcePageBegin</returnable>
+        <returnable>AtomStateMixingCoeff</returnable>
+        <returnable>AtomStateTermLSL</returnable>
+        <returnable>AtomSpeciesID</returnable>
+        <returnable>RadTransID</returnable>
+        <returnable>AtomStateStatisticalWeight</returnable>
+        <returnable>NodeID</returnable>
+        <returnable>AtomNuclearCharge</returnable>
+        <returnable>AtomSymbol</returnable>
+        <returnable>AtomStateTermLSS</returnable>
+        <returnable>AtomInchiKey</returnable>
+        <returnable>RadTransWavelengthUnit</returnable>
+        <returnable>AtomStateRef</returnable>
+        <returnable>AtomStateParity</returnable>
+        <returnable>SourceDOI</returnable>
+        <returnable>RadTransUpperStateRef</returnable>
+        <returnable>SourceURI</returnable>
+        <returnable>RadTransProbabilityWeightedOscillatorStrength</returnable>
+        <returnable>SourceName</returnable>
+        <returnable>AtomStateEnergy</returnable>
+        <returnable>CrossSectionX</returnable>
+        <returnable>CrossSectionY</returnable>
+        <returnable>CrossSectionXUnit</returnable>
+        <returnable>SourceYear</returnable>
+        <returnable>AtomStateTotalAngMom</returnable>
+        <returnable>CrossSectionYN</returnable>
+        <returnable>AtomStateStatisticalWeightUnit</returnable>
+        <returnable>AtomStateLifeTimeUnit</returnable>
+        <returnable>SourceCategory</returnable>
+        <returnable>AtomStateMixingCoeffClass</returnable>
+        <returnable>AtomStateIonizationEnergy</returnable>
+        <returnable>RadTransProbabilityA</returnable>
+        <returnable>CrossSectionState</returnable>
+        <returnable>RadTransWavelength</returnable>
+        <returnable>AtomStateIonizationEnergyUnit</returnable>
+        <returnable>AtomStateTermLabel</returnable>
+        <returnable>SourcePageEnd</returnable>
+        <returnable>CrossSectionYUnit</returnable>
+        <returnable>AtomStateEnergyUnit</returnable>
+        <returnable>RadTransProbabilityAUnit</returnable>
+        <returnable>AtomStateLifeTime</returnable>
+        <returnable>AtomMassNumber</returnable>
+        <returnable>SourceVolume</returnable>
+        <returnable>RadTransRefs</returnable>
+        <returnable>SourceAuthorName</returnable>
+        <returnable>SourceTitle</returnable>
+        <returnable>AtomInchi</returnable>
+        <returnable>AtomStateTermLSMultiplicity</returnable>
+        <returnable>CrossSectionID</returnable>
+        <returnable>CrossSectionXN</returnable>
+        <returnable>AtomStateID</returnable>
+        <returnable>SourceID</returnable>
+        <returnable>AtomStateConfigurationLabel</returnable>
+        <returnable>AtomIonCharge</returnable>
+        <returnable>RadTransLowerStateRef</returnable>
+        <restrictable>AtomNuclearCharge</restrictable>
+        <restrictable>IonCharge</restrictable>
+        <restrictable>RadTransWavelength</restrictable>
+        <restrictable>AtomSymbol</restrictable>
+    </capability>
+    <capability xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" standardID="ivo://ivoa.net/std/TAP">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://topbase.obspm.fr/11.12/vamdc/tap/</accessURL>
+        </interface>
+    </capability>
+    <capability xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" standardID="ivo://ivoa.net/std/VOSI#capabilities">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://topbase.obspm.fr/11.12/vamdc/tap/capabilities</accessURL>
+        </interface>
+    </capability>
+    <capability xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" standardID="ivo://ivoa.net/std/VOSI#availability">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://topbase.obspm.fr/11.12/vamdc/tap/availability</accessURL>
+        </interface>
+    </capability>
+</ri:Resource><ri:Resource xmlns:cea="http://www.ivoa.net/xml/CEA/v1.0rc1" xmlns:agr="urn:astrogrid:schema:RegistryStoreResource:v1" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.0" xmlns:va="http://www.ivoa.net/xml/VOApplication/v1.0rc1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" created="2011-09-21T09:46:12" status="active" updated="2012-12-04T13:58:23" xsi:type="vs:CatalogService" xsi:schemaLocation="http://www.ivoa.net/xml/RegistryInterface/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/registry/RegistryInterface/v1.0/RegistryInterface.xsd http://www.ivoa.net/xml/VOResource/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VOResource/v1.0/VOResource.xsd  http://www.ivoa.net/xml/VODataService/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VODataService/v1.0/VODataService.xsd http://www.ivoa.net/xml/VOTable/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-formats/VOTable/v1.0/VOTable.xsd">
+    <title xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">TIPbase : VAMDC-TAP interface</title>
+    <identifier xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">ivo://vamdc/TIPbase/tap-xsams</identifier>
+    <curation xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">
+        <publisher>Observatoire de Paris, LERMA</publisher>
+        <creator>
+            <name>The Opacity Project - Iron Project team</name>
+        </creator>
+        <contact>
+            <name>Nicolas Moreau - Franck Delahaye</name>
+            <email>nicolas.moreau@obspm.fr - franck.delahaye@obspm.fr</email>
+        </contact>
+    </curation>
+    <content xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">
+        <subject />
+        <description>TIPbase lists fine-structure levels, A-values, collision strengths and effective collision strengths for astrophysically abundant ions, mainly from the Fe isonuclear sequence computed in the Iron Project.</description>
+        <referenceURL>http://cdsweb.u-strasbg.fr/tipbase/home.html</referenceURL>
+        <type>Other</type>
+        <contentLevel>Research</contentLevel>
+    </content>
+    <capability xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" standardID="ivo://vamdc/std/VAMDC-TAP" xsi:type="tx:VamdcTap">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://tipbase.obspm.fr/11.12/vamdc/tap/</accessURL>
+        </interface>
+        <versionOfStandards>11.12</versionOfStandards>
+        <versionOfSoftware>11.12r3</versionOfSoftware>
+        <sampleQuery>select all where  AtomSymbol = 'He'</sampleQuery>
+        <returnable>ParticleMassUnit</returnable>
+        <returnable>AtomStateLifeTimeDecay</returnable>
+        <returnable>SourcePageBegin</returnable>
+        <returnable>AtomStateMixingCoeff</returnable>
+        <returnable>AtomStateTermLSL</returnable>
+        <returnable>CollisionTabulatedDataYDataListN</returnable>
+        <returnable>SourcePageEnd</returnable>
+        <returnable>AtomStateStatisticalWeight</returnable>
+        <returnable>AtomStateTermLSMultiplicity</returnable>
+        <returnable>ParticleMass</returnable>
+        <returnable>NodeID</returnable>
+        <returnable>AtomSymbol</returnable>
+        <returnable>AtomStateTermLSS</returnable>
+        <returnable>AtomInchiKey</returnable>
+        <returnable>CollisionTabulatedDataXUnits</returnable>
+        <returnable>AtomStateRef</returnable>
+        <returnable>AtomStateParity</returnable>
+        <returnable>SourceDOI</returnable>
+        <returnable>SourceVolume</returnable>
+        <returnable>CollisionTabulatedDataYDataList</returnable>
+        <returnable>AtomStateEnergy</returnable>
+        <returnable>CollisionTabulatedDataXParameter</returnable>
+        <returnable>SourceID</returnable>
+        <returnable>AtomNuclearCharge</returnable>
+        <returnable>ParticleCharge</returnable>
+        <returnable>CollisionReactantState</returnable>
+        <returnable>AtomStateStatisticalWeightUnit</returnable>
+        <returnable>AtomStateLifeTimeUnit</returnable>
+        <returnable>ParticleSpeciesID</returnable>
+        <returnable>AtomStateMixingCoeffClass</returnable>
+        <returnable>AtomStateIonizationEnergy</returnable>
+        <returnable>CollisionTabulatedDataXDataListN</returnable>
+        <returnable>AtomStateIonizationEnergyUnit</returnable>
+        <returnable>AtomStateTermLabel</returnable>
+        <returnable>AtomStateTotalAngMom</returnable>
+        <returnable>AtomStateEnergyUnit</returnable>
+        <returnable>AtomStateLifeTime</returnable>
+        <returnable>CollisionTabulatedDataYParameter</returnable>
+        <returnable>AtomMassNumber</returnable>
+        <returnable>AtomSpeciesID</returnable>
+        <returnable>CollisionTabulatedDataXDataList</returnable>
+        <returnable>CollisionProductState</returnable>
+        <returnable>CollisionDataSetDescription</returnable>
+        <returnable>SourceAuthorName</returnable>
+        <returnable>SourceURI</returnable>
+        <returnable>SourceTitle</returnable>
+        <returnable>AtomInchi</returnable>
+        <returnable>CollisionID</returnable>
+        <returnable>CollisionReactantSpecies</returnable>
+        <returnable>SourceYear</returnable>
+        <returnable>SourceName</returnable>
+        <returnable>AtomStateID</returnable>
+        <returnable>ParticleName</returnable>
+        <returnable>CollisionTabulatedDataRef</returnable>
+        <returnable>AtomStateConfigurationLabel</returnable>
+        <returnable>AtomIonCharge</returnable>
+        <returnable>CollisionTabulatedDataYUnits</returnable>
+        <returnable>SourceCategory</returnable>
+        <restrictable>AtomNuclearCharge</restrictable>
+        <restrictable>IonCharge</restrictable>
+        <restrictable>AtomSymbol</restrictable>
+    </capability>
+    <capability xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" standardID="ivo://ivoa.net/std/TAP">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://tipbase.obspm.fr/11.12/vamdc/tap/</accessURL>
+        </interface>
+    </capability>
+    <capability xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" standardID="ivo://ivoa.net/std/VOSI#capabilities">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://tipbase.obspm.fr/11.12/vamdc/tap/capabilities</accessURL>
+        </interface>
+    </capability>
+    <capability xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" standardID="ivo://ivoa.net/std/VOSI#availability">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://tipbase.obspm.fr/11.12/vamdc/tap/availability</accessURL>
+        </interface>
+    </capability>
+</ri:Resource><ri:Resource xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cea="http://www.ivoa.net/xml/CEA/v1.0rc1" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" xmlns:stc="http://www.ivoa.net/xml/STC/stc-v1.30.xsd" xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.0" xmlns:va="http://www.ivoa.net/xml/VOApplication/v1.0rc1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" created="2010-09-10T10:58:45" status="active" updated="2012-02-15T16:58:33" xsi:type="vs:CatalogService" xsi:schemaLocation="http://www.ivoa.net/xml/RegistryInterface/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/registry/RegistryInterface/v1.0/RegistryInterface.xsd http://www.ivoa.net/xml/VOResource/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VOResource/v1.0/VOResource.xsd  http://www.ivoa.net/xml/VODataService/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VODataService/v1.0/VODataService.xsd http://www.ivoa.net/xml/VOTable/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-formats/VOTable/v1.0/VOTable.xsd">
+    <title>Cologne Database for Molecular Spectroscopy: VAMDC-TAP service</title>
+    <identifier xmlns:tx="http://www.vamdc.eu/xml/TAPXSAMS/v1.0">ivo://vamdc/CDMS/Django</identifier>
+    <curation>
+        <publisher />
+        <creator>
+            <name />
+        </creator>
+        <contact>
+            <name>Christian Endres</name>
+            <email>endres@ph1.uni-koeln.de</email>
+        </contact>
+    </curation>
+    <content>
+        <subject />
+        <description>The Cologne Database for Molecular Spectroscopy (CDMS) contains a catalog of radio frequency and microwave to far-infrared spectral lines of atomic and molecular species that (may) occur in the interstellar or circumstellar medium or in planetary atmospheres. The catalog is continuously updated.</description>
+        <referenceURL>http://www.cdms.de</referenceURL>
+        <type>Other</type>
+        <contentLevel>Research</contentLevel>
+    </content>
+    <capability standardID="ivo://vamdc/std/VAMDC-TAP" xsi:type="tx:VamdcTap">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://cdms.ph1.uni-koeln.de/DjCDMSdev/tap/</accessURL>
+        </interface>
+        <versionOfStandards>11.12</versionOfStandards>
+        <versionOfSoftware>11.12</versionOfSoftware>
+        <sampleQuery>SELECT ALL WHERE InChIKey="UGFAIRIUMAVXCW-ZCWHFVSRSA-N"</sampleQuery>
+        <sampleQuery>SELECT ALL WHERE MoleculeStoichiometricFormula = "CO"</sampleQuery>
+        <returnable>MoleculeMolecularWeight</returnable>
+        <returnable>RadTransFrequencyAccuracy</returnable>
+        <returnable>MoleculeStructure</returnable>
+        <returnable>SourcePageBegin</returnable>
+        <returnable>AtomSpeciesID</returnable>
+        <returnable>SourcePageEnd</returnable>
+        <returnable>SourceDOI</returnable>
+        <returnable>MoleculeStateID</returnable>
+        <returnable>MoleculeStateNuclearSpinIsomer</returnable>
+        <returnable>AtomSymbol</returnable>
+        <returnable>AtomInchiKey</returnable>
+        <returnable>MoleculeQnAttribute</returnable>
+        <returnable>MoleculeOrdinaryStructuralFormula</returnable>
+        <returnable>RadTransFrequency</returnable>
+        <returnable>SourceName</returnable>
+        <returnable>MoleculePartitionFunctionT</returnable>
+        <returnable>RadTransFrequencyUnit</returnable>
+        <returnable>MoleculeQnCase</returnable>
+        <returnable>RadTransUpperStateRef</returnable>
+        <returnable>SourceID</returnable>
+        <returnable>AtomStateEnergy</returnable>
+        <returnable>MethodComment</returnable>
+        <returnable>MoleculeInchiKey</returnable>
+        <returnable>MoleculeStoichiometricFormula</returnable>
+        <returnable>MethodSourceRef</returnable>
+        <returnable>SourceCategory</returnable>
+        <returnable>MoleculeStateTotalStatisticalWeight</returnable>
+        <returnable>SourceYear</returnable>
+        <returnable>AtomStateEnergyOrigin</returnable>
+        <returnable>MoleculeInchi</returnable>
+        <returnable>MoleculeQnLabel</returnable>
+        <returnable>MethodCategory</returnable>
+        <returnable>MethodID</returnable>
+        <returnable>MethodRef</returnable>
+        <returnable>SourceAuthorName</returnable>
+        <returnable>AtomStateTotalAngMom</returnable>
+        <returnable>AtomStateEnergyUnit</returnable>
+        <returnable>RadTransProbabilityAUnit</returnable>
+        <returnable>MoleculePartitionFunction</returnable>
+        <returnable>AtomMassNumber</returnable>
+        <returnable>SourceVolume</returnable>
+        <returnable>MoleculeQnStateID</returnable>
+        <returnable>RadTransProbabilityMultipole</returnable>
+        <returnable>RadTransFrequencyRef</returnable>
+        <returnable>RadTransFrequencyMethod</returnable>
+        <returnable>RadTransProbabilityA</returnable>
+        <returnable>MoleculeID</returnable>
+        <returnable>MoleculeStateQuantumNumbers</returnable>
+        <returnable>MethodDescription</returnable>
+        <returnable>MoleculeStateEnergyOrigin</returnable>
+        <returnable>AtomInchi</returnable>
+        <returnable>NodeID</returnable>
+        <returnable>MoleculeStateEnergyUnit</returnable>
+        <returnable>RadTransProbabilityLog10WeightedOscillatorStrength</returnable>
+        <returnable>MoleculeStateEnergy</returnable>
+        <returnable>MoleculeSpeciesID</returnable>
+        <returnable>AtomStateID</returnable>
+        <returnable>MoleculeQnValue</returnable>
+        <returnable>MoleculeChemicalName</returnable>
+        <returnable>AtomIonCharge</returnable>
+        <returnable>MoleculeComment</returnable>
+        <returnable>MoleculeStateNuclearStatisticalWeight</returnable>
+        <returnable>RadTransLowerStateRef</returnable>
+        <restrictable>RadTransWavenumber</restrictable>
+        <restrictable>RadTransWavelength</restrictable>
+        <restrictable>RadTransEnergy</restrictable>
+        <restrictable>MoleculeStateEnergy</restrictable>
+        <restrictable>InchiKey</restrictable>
+        <restrictable>MoleculeStoichiometricFormula</restrictable>
+        <restrictable>RadTransProbabilityIdealisedIntensity</restrictable>
+        <restrictable>MoleculeStateNuclearSpinIsomer</restrictable>
+        <restrictable>MoleculeChemicalName</restrictable>
+        <restrictable>MoleculeSpeciesID</restrictable>
+        <restrictable>MoleculeOrdinaryStructuralFormula</restrictable>
+        <restrictable>RadTransFrequency</restrictable>
+    </capability>
+    <capability standardID="ivo://ivoa.net/std/TAP">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://cdms.ph1.uni-koeln.de/DjCDMSdev/tap/</accessURL>
+        </interface>
+    </capability>
+    <capability standardID="ivo://ivoa.net/std/VOSI#capabilities">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://cdms.ph1.uni-koeln.de/DjCDMSdev/tap/capabilities</accessURL>
+        </interface>
+    </capability>
+    <capability standardID="ivo://ivoa.net/std/VOSI#availability">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://cdms.ph1.uni-koeln.de/DjCDMSdev/tap/availability</accessURL>
+        </interface>
+    </capability>
+    <capability standardID="ivo://ivoa.net/std/TAP">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://cdms.ph1.uni-koeln.de/DjCDMSdev/tap/</accessURL>
+        </interface>
+    </capability>
+    <capability standardID="ivo://ivoa.net/std/VOSI#capabilities">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://cdms.ph1.uni-koeln.de/DjCDMSdev/tap/capabilities</accessURL>
+        </interface>
+    </capability>
+    <capability standardID="ivo://ivoa.net/std/VOSI#availability">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://cdms.ph1.uni-koeln.de/DjCDMSdev/tap/availability</accessURL>
+        </interface>
+    </capability>
+    <coverage>
+        <stc:STCResourceProfile xmlns:stc="http://www.ivoa.net/xml/STC/stc-v1.30.xsd">
+            <stc:AstroCoordSystem id="vamdc_CDMS_Django_whatever" />
+            <stc:AstroCoordArea coord_system_id="vamdc_CDMS_Django_whatever">
+                <stc:AllSky />
+            </stc:AstroCoordArea>
+        </stc:STCResourceProfile>
+        <waveband>Radio</waveband>
+        <waveband>Millimeter</waveband>
+    </coverage>
+</ri:Resource><ri:Resource xmlns:cea="http://www.ivoa.net/xml/CEA/v1.0rc1" xmlns:agr="urn:astrogrid:schema:RegistryStoreResource:v1" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.0" xmlns:va="http://www.ivoa.net/xml/VOApplication/v1.0rc1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" created="2010-09-06T10:10:08" status="active" updated="2012-05-05T17:33:37" xsi:type="vs:CatalogService" xsi:schemaLocation="http://www.ivoa.net/xml/RegistryInterface/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/registry/RegistryInterface/v1.0/RegistryInterface.xsd http://www.ivoa.net/xml/VOResource/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VOResource/v1.0/VOResource.xsd  http://www.ivoa.net/xml/VODataService/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VODataService/v1.0/VODataService.xsd http://www.ivoa.net/xml/VOTable/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-formats/VOTable/v1.0/VOTable.xsd">
+    <title xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">VALD (atoms)</title>
+    <identifier xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">ivo://vamdc/vald/uu/django</identifier>
+    <curation xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">
+        <publisher>VALD consortium</publisher>
+        <creator>
+            <name />
+        </creator>
+        <contact>
+            <name>Thomas Marquart</name>
+            <email>thomas.marquart@fysast.uu.se</email>
+        </contact>
+    </curation>
+    <content xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0">
+        <subject />
+        <description>The Vienna Atomic Line Database (VALD) is a collection of atomic line parameters (wavelengths, transition energies and quantum numbers, oscillator strengths,
+Lande factors, radiative and collisional broadening). This resource is the VAMDC-TAP representation of the atomic data in VALD3.</description>
+        <referenceURL>http://vald.astro.uu.se/~vald/php/vald.php</referenceURL>
+        <type>Other</type>
+        <contentLevel>Research</contentLevel>
+    </content>
+    <capability xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" standardID="ivo://vamdc/std/VAMDC-TAP" xsi:type="tx:VamdcTap">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://vald.astro.uu.se/atoms/tap/</accessURL>
+        </interface>
+        <versionOfStandards>11.12</versionOfStandards>
+        <versionOfSoftware>11.12r1</versionOfSoftware>
+        <sampleQuery>SELECT ALL WHERE RadTransWavelength > 4000 AND RadTransWavelength &lt; 4000.01</sampleQuery>
+        <sampleQuery>SELECT ALL WHERE AtomSymbol = 'U'</sampleQuery>
+        <sampleQuery>SELECT ALL WHERE ( AtomSymbol = 'Mg' ) AND (RadTransWavelength >= 5100 AND RadTransWavelength &lt;= 5200)</sampleQuery>
+        <sampleQuery>SELECT SPECIES</sampleQuery>
+        <returnable>AtomStateLandeFactorRef</returnable>
+        <returnable>AtomStateTermJ1J2</returnable>
+        <returnable>RadTransBroadeningNaturalRef</returnable>
+        <returnable>AtomStateTermLSL</returnable>
+        <returnable>AtomStateTermJKS</returnable>
+        <returnable>AtomStateTermS</returnable>
+        <returnable>AtomSpeciesID</returnable>
+        <returnable>AtomNuclearCharge</returnable>
+        <returnable>RadTransBroadeningPressureLineshapeParameterUnit</returnable>
+        <returnable>AtomSymbol</returnable>
+        <returnable>RadTransWavelength</returnable>
+        <returnable>RadTransWavelengthUnit</returnable>
+        <returnable>AtomStateParity</returnable>
+        <returnable>RadTransUpperStateRef</returnable>
+        <returnable>RadTransWavelengthRef</returnable>
+        <returnable>AtomStateEnergy</returnable>
+        <returnable>RadTransMethod</returnable>
+        <returnable>RadTransProbabilityLog10WeightedOscillatorStrengthRef</returnable>
+        <returnable>AtomIonCharge</returnable>
+        <returnable>AtomStateKappa</returnable>
+        <returnable>AtomStateEnergyRef</returnable>
+        <returnable>RadTransBroadeningPressureComment</returnable>
+        <returnable>MethodCategory</returnable>
+        <returnable>MethodID</returnable>
+        <returnable>RadTransSpeciesRef</returnable>
+        <returnable>RadTransID</returnable>
+        <returnable>AtomStateTotalAngMom</returnable>
+        <returnable>AtomStateEnergyUnit</returnable>
+        <returnable>RadTransBroadeningNaturalLineshapeParameterName</returnable>
+        <returnable>AtomMassNumber</returnable>
+        <returnable>AtomInchiKey</returnable>
+        <returnable>RadTransBroadeningPressureLineshapeParameter</returnable>
+        <returnable>RadTransBroadeningNaturalLineshapeParameter</returnable>
+        <returnable>AtomStateLandeFactorUnit</returnable>
+        <returnable>MethodDescription</returnable>
+        <returnable>AtomInchi</returnable>
+        <returnable>RadTransBroadeningNaturalLineshapeParameterUnit</returnable>
+        <returnable>RadTransBroadeningPressureRef</returnable>
+        <returnable>NodeID</returnable>
+        <returnable>RadTransProbabilityLog10WeightedOscillatorStrength</returnable>
+        <returnable>RadTransProbabilityLog10WeightedOscillatorStrengthUnit</returnable>
+        <returnable>AtomStateLandeFactor</returnable>
+        <returnable>AtomStateTermJKJ</returnable>
+        <returnable>AtomStateID</returnable>
+        <returnable>RadTransBroadeningPressureLineshapeParameterName</returnable>
+        <returnable>RadTransBroadeningPressureLineshapeName</returnable>
+        <returnable>RadTransBroadeningPressureEnvironment</returnable>
+        <returnable>RadTransWavelengthComment</returnable>
+        <returnable>RadTransBroadeningNaturalLineshapeName</returnable>
+        <returnable>RadTransLowerStateRef</returnable>
+        <restrictable>MethodCategory</restrictable>
+        <restrictable>InchiKey</restrictable>
+        <restrictable>RadTransWavenumber</restrictable>
+        <restrictable>RadTransWavelength</restrictable>
+        <restrictable>StateEnergy</restrictable>
+        <restrictable>RadTransEnergy</restrictable>
+        <restrictable>RadTransBroadeningNatural</restrictable>
+        <restrictable>RadTransFrequency</restrictable>
+        <restrictable>RadTransProbabilityLog10WeightedOscillatorStrength</restrictable>
+        <restrictable>IonCharge</restrictable>
+        <restrictable>AtomNuclearCharge</restrictable>
+        <restrictable>AtomSymbol</restrictable>
+        <restrictable>RadTransBroadeningPressure</restrictable>
+        <restrictable>Lower.StateEnergy</restrictable>
+        <restrictable>Upper.StateEnergy</restrictable>
+        <restrictable>RadTransProbabilityA</restrictable>
+    </capability>
+    <capability xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" standardID="ivo://ivoa.net/std/TAP">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://vald.astro.uu.se/atoms/tap/</accessURL>
+        </interface>
+    </capability>
+    <capability xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" standardID="ivo://ivoa.net/std/VOSI#capabilities">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://vald.astro.uu.se/atoms/tap/capabilities</accessURL>
+        </interface>
+    </capability>
+    <capability xmlns:tx="http://www.vamdc.org/xml/VAMDC-TAP/v1.0" xmlns:cap="http://www.ivoa.net/xml/VOSICapabilities/v1.0" standardID="ivo://ivoa.net/std/VOSI#availability">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="base">http://vald.astro.uu.se/atoms/tap/availability</accessURL>
+        </interface>
+    </capability>
+</ri:Resource><ri:Resource xmlns:cea="http://www.ivoa.net/xml/CEA/v1.0rc1" xmlns:vg="http://www.ivoa.net/xml/VORegistry/v1.0" xmlns:ri="http://www.ivoa.net/xml/RegistryInterface/v1.0" xmlns:vr="http://www.ivoa.net/xml/VOResource/v1.0" xmlns:vs="http://www.ivoa.net/xml/VODataService/v1.0" xmlns:va="http://www.ivoa.net/xml/VOApplication/v1.0rc1" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" created="2010-08-04T10:35:45" status="active" updated="2010-08-04T11:04:59" xsi:type="vs:CatalogService" xsi:schemaLocation="http://www.ivoa.net/xml/RegistryInterface/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/registry/RegistryInterface/v1.0/RegistryInterface.xsd http://www.ivoa.net/xml/VOResource/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VOResource/v1.0/VOResource.xsd  http://www.ivoa.net/xml/VODataService/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-resource-types/VODataService/v1.0/VODataService.xsd http://www.ivoa.net/xml/VOTable/v1.0 http://registry.vamdc.eu:80/registry-11.12/schema/vo-formats/VOTable/v1.0/VOTable.xsd">
+    <title>XStar database: DSA service</title>
+    <identifier>ivo://vamdc/XStarDB/DSA</identifier>
+    <curation>
+        <publisher>Institute of Astronomy, Cambridge</publisher>
+        <creator>
+            <name />
+        </creator>
+        <contact>
+            <name>Guy Rixon</name>
+            <email>gtr@ast.cam.ac.uk</email>
+        </contact>
+    </curation>
+    <content>
+        <subject />
+        <description>This service provides a TAP interface to XStarDB. Q.v. the registration of the data collection.</description>
+        <referenceURL>http://www.astrogrid.org/</referenceURL>
+        <type>Other</type>
+        <contentLevel>Research</contentLevel>
+        <relationship>
+            <relationshipType>service-for</relationshipType>
+            <relatedResource>ivo://vamdc/XStarDB/DSA/ceaApplication</relatedResource>
+            <relatedResource>ivo://vamdc/XStarDB/DSA/collection</relatedResource>
+        </relationship>
+    </content>
+    <capability xmlns:cap="urn:astrogrid:schema:Capabilities" xmlns:cs="http://www.ivoa.net/xml/ConeSearch/v1.0" standardID="ivo://ivoa.net/std/TAP">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="full">http://casx019-zone1.ast.cam.ac.uk/XstarDB//TAP</accessURL>
+        </interface>
+    </capability>
+    <capability xmlns:cap="urn:astrogrid:schema:Capabilities" xmlns:cs="http://www.ivoa.net/xml/ConeSearch/v1.0" standardID="ivo://org.astrogrid/std/CEA/v1.0" xsi:type="cea:CeaCapability">
+        <description>Access to two applications: general ADQL query, and asynchronous cone-search where relevant/enabled.</description>
+        <interface xsi:type="cea:CECInterface">
+            <accessURL use="full">http://casx019-zone1.ast.cam.ac.uk/XstarDB//services/CommonExecutionConnectorService</accessURL>
+        </interface>
+        <managedApplications>
+            <ApplicationReference>ivo://org.astrogrid.test/XstarDB/ceaApplication</ApplicationReference>
+        </managedApplications>
+    </capability>
+    <capability xmlns:cap="urn:astrogrid:schema:Capabilities" xmlns:cs="http://www.ivoa.net/xml/ConeSearch/v1.0" standardID="ivo://org.astrogrid/std/VOSI/v0.3#capabilities">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="full">http://casx019-zone1.ast.cam.ac.uk/XstarDB//VOSI/capabilities</accessURL>
+            <queryType>GET</queryType>
+            <resultType>application/xml</resultType>
+        </interface>
+    </capability>
+    <capability xmlns:cap="urn:astrogrid:schema:Capabilities" xmlns:cs="http://www.ivoa.net/xml/ConeSearch/v1.0" standardID="ivo://ivoa.net/std/VOSI#capabilities">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="full">http://casx019-zone1.ast.cam.ac.uk/XstarDB//VOSI/capabilities</accessURL>
+            <queryType>GET</queryType>
+            <resultType>application/xml</resultType>
+        </interface>
+    </capability>
+    <capability xmlns:cap="urn:astrogrid:schema:Capabilities" xmlns:cs="http://www.ivoa.net/xml/ConeSearch/v1.0" standardID="ivo://org.astrogrid/std/VOSI/v0.3#availability">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="full">http://casx019-zone1.ast.cam.ac.uk/XstarDB//VOSI/availability</accessURL>
+            <queryType>GET</queryType>
+            <resultType>application/xml</resultType>
+        </interface>
+    </capability>
+    <capability xmlns:cap="urn:astrogrid:schema:Capabilities" xmlns:cs="http://www.ivoa.net/xml/ConeSearch/v1.0" standardID="ivo://ivoa.net/std/VOSI#availability">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="full">http://casx019-zone1.ast.cam.ac.uk/XstarDB//VOSI/availability</accessURL>
+            <queryType>GET</queryType>
+            <resultType>application/xml</resultType>
+        </interface>
+    </capability>
+    <capability xmlns:cap="urn:astrogrid:schema:Capabilities" xmlns:cs="http://www.ivoa.net/xml/ConeSearch/v1.0" standardID="ivo://org.astrogrid/std/VOSI/v0.3#tables">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="full">http://casx019-zone1.ast.cam.ac.uk/XstarDB//VOSI/tables</accessURL>
+            <queryType>GET</queryType>
+            <resultType>application/xml</resultType>
+        </interface>
+    </capability>
+    <capability xmlns:cap="urn:astrogrid:schema:Capabilities" xmlns:cs="http://www.ivoa.net/xml/ConeSearch/v1.0" standardID="ivo://org.astrogrid/std/VOSI/v0.3#ceaApplication">
+        <interface xsi:type="vs:ParamHTTP">
+            <accessURL use="full">http://casx019-zone1.ast.cam.ac.uk/XstarDB//VOSI/applications</accessURL>
+            <queryType>GET</queryType>
+            <resultType>application/xml</resultType>
+        </interface>
+    </capability>
+    <capability xmlns:cap="urn:astrogrid:schema:Capabilities" xmlns:cs="http://www.ivoa.net/xml/ConeSearch/v1.0" standardID="ivo://ivoa.net/std/Delegation">
+        <interface role="std" xsi:type="vs:ParamHTTP">
+            <accessURL use="full">http://casx019-zone1.ast.cam.ac.uk/XstarDB//delegations</accessURL>
+            <queryType>GET</queryType>
+            <resultType>application/xml</resultType>
+        </interface>
+    </capability>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>allconfs</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>conf</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>ne</name>
+            <description />
+            <dataType>short</dataType>
+        </column>
+        <column>
+            <name>parity</name>
+            <description />
+            <dataType>short</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>alllevels</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>tid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>j2</name>
+            <description />
+            <dataType>short</dataType>
+        </column>
+        <column>
+            <name>ne</name>
+            <description />
+            <dataType>short</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>allterms</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>cid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>g</name>
+            <description />
+            <dataType>short</dataType>
+        </column>
+        <column>
+            <name>l</name>
+            <description />
+            <dataType>short</dataType>
+        </column>
+        <column>
+            <name>alpha</name>
+            <description />
+            <dataType>short</dataType>
+        </column>
+        <column>
+            <name>ne</name>
+            <description />
+            <dataType>short</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>data</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>long</dataType>
+        </column>
+        <column>
+            <name>sid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>dtid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>value</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>compare</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>datatypes</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>fdtid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>xid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>label</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>uid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>description</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>ident</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>door2</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>did</name>
+            <description />
+            <dataType>long</dataType>
+        </column>
+        <column>
+            <name>xmin</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>xmax</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>fmin</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>fmax</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>count</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>door3</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>did</name>
+            <description />
+            <dataType>long</dataType>
+        </column>
+        <column>
+            <name>xmin</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>xmax</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>ymin</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>ymax</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>fmin</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>fmax</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>count</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>elements</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>short</dataType>
+        </column>
+        <column>
+            <name>z</name>
+            <description />
+            <dataType>short</dataType>
+        </column>
+        <column>
+            <name>name</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>sym</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>mass</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>fundamental</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>xid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>label</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>description</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>ident</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>hidden</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>ions</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>eid</name>
+            <description />
+            <dataType>short</dataType>
+        </column>
+        <column>
+            <name>ne</name>
+            <description />
+            <dataType>short</dataType>
+        </column>
+        <column>
+            <name>charge</name>
+            <description />
+            <dataType>short</dataType>
+        </column>
+        <column>
+            <name>gnd_conf</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>gnd_term</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>gnd_level</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>log</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>date</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>name</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>msg</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>notes</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>src_table</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>rid</name>
+            <description />
+            <dataType>long</dataType>
+        </column>
+        <column>
+            <name>type</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>note</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>paramdef</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>dtid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>ptid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>parameters</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>long</dataType>
+        </column>
+        <column>
+            <name>did</name>
+            <description />
+            <dataType>long</dataType>
+        </column>
+        <column>
+            <name>ptid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>value</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>compare</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>paramtypes</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>label</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>uid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>ident</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>description</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>reference</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>authors</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>year</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>reference</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>link</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>ident</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>adslink</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>setdef</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>var</name>
+            <description />
+            <dataType arraysize="1">char</dataType>
+        </column>
+        <column>
+            <name>ptid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>dtid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>sourceref</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>sid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>rid</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>top</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>sources</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>added</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>description</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>notes</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>ident</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>store2</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>long</dataType>
+        </column>
+        <column>
+            <name>d2id</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>x</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>xcomp</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>f</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>fcomp</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>store3</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>long</dataType>
+        </column>
+        <column>
+            <name>d3id</name>
+            <description />
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>x</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>xcomp</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>y</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>ycomp</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+        <column>
+            <name>f</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>fcomp</name>
+            <description />
+            <dataType>double</dataType>
+        </column>
+    </table>
+    <table xmlns:tab="urn:astrogrid:schema:TableMetadata">
+        <name>units</name>
+        <description />
+        <column>
+            <name>id</name>
+            <description>auto_increment</description>
+            <dataType>int</dataType>
+        </column>
+        <column>
+            <name>ident</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>term</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>web</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+        <column>
+            <name>latex</name>
+            <description />
+            <dataType arraysize="*">char</dataType>
+        </column>
+    </table>
+</ri:Resource></ri:VOResources></riw:SearchResponse></soap:Body></soap:Envelope>SimpleXMLElement Object
+(
+    [VOResources] => SimpleXMLElement Object
+        (
+            [Resource] => Array
+                (
+                    [0] => SimpleXMLElement Object
+                        (
+                        )
+
+                    [1] => SimpleXMLElement Object
+                        (
+                        )
+
+                    [2] => SimpleXMLElement Object
+                        (
+                        )
+
+                    [3] => SimpleXMLElement Object
+                        (
+                        )
+
+                    [4] => SimpleXMLElement Object
+                        (
+                        )
+
+                    [5] => SimpleXMLElement Object
+                        (
+                        )
+
+                    [6] => SimpleXMLElement Object
+                        (
+                        )
+
+                )
+
+        )
+
+)
