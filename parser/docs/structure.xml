@@ -1,0 +1,596 @@
+<?xml version="1.0" encoding="utf-8"?>
+<project version="2.0.0a12" title="">
+  <file path="registry_parser.php" hash="065c7526ecefa8441d97f880c53fa3e1" package="Default">
+    <constant namespace="global" line="6" package="Default">
+      <name>IVO_VAMDC_TAP</name>
+      <full_name>\IVO_VAMDC_TAP</full_name>
+      <value>'ivo://vamdc/std/VAMDC-TAP'</value>
+    </constant>
+    <constant namespace="global" line="11" package="Default">
+      <name>IVO_CAPABILITY</name>
+      <full_name>\IVO_CAPABILITY</full_name>
+      <value>'ivo://ivoa.net/std/VOSI#capabilities'</value>
+    </constant>
+    <constant namespace="global" line="16" package="Default">
+      <name>IVO_AVAILABILITY</name>
+      <full_name>\IVO_AVAILABILITY</full_name>
+      <value>'ivo://ivoa.net/std/VOSI#availability'</value>
+    </constant>
+    <class final="false" abstract="false" namespace="global" line="21" package="Default">
+      <extends/>
+      <name>Requester</name>
+      <full_name>\Requester</full_name>
+      <docblock line="18">
+        <description>Object doing SOAP request against a registry</description>
+        <long-description/>
+      </docblock>
+      <property final="false" static="true" visibility="public" line="25" namespace="global" package="Default">
+        <name>$REGISTRY_11_12</name>
+        <default>'http://registry.vamdc.eu/registry-11.12/services/RegistryQueryv1_0?wsdl'</default>
+        <docblock line="22">
+          <description>wsdl of registry containing 11.12 version of services</description>
+          <long-description/>
+        </docblock>
+      </property>
+      <property final="false" static="true" visibility="public" line="30" namespace="global" package="Default">
+        <name>$REGISTRY_12_07</name>
+        <default>'http://registry.vamdc.eu/registry-12.07/services/RegistryQueryv1_0?wsdl'</default>
+        <docblock line="27">
+          <description>wsdl of registry containing 12.07 version of services</description>
+          <long-description/>
+        </docblock>
+      </property>
+      <property final="false" static="false" visibility="private" line="35" namespace="global" package="Default">
+        <name>$_client</name>
+        <default>null</default>
+        <docblock line="32">
+          <description>client object</description>
+          <long-description/>
+        </docblock>
+      </property>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="40" package="Default">
+        <name>__construct</name>
+        <full_name>__construct</full_name>
+        <docblock line="37">
+          <description/>
+          <long-description/>
+          <tag line="37" name="param" description="Url of wsdl file to build query object" type="string" variable="$wsdl">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="40">
+          <name>$wsdl</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="48" package="Default">
+        <name>getFunctions</name>
+        <full_name>getFunctions</full_name>
+        <docblock line="44">
+          <description>returns a list of all functions declared in wsdl</description>
+          <long-description/>
+          <tag line="44" name="return" description="A list of function provided by the service" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="58" package="Default">
+        <name>getTypes</name>
+        <full_name>getTypes</full_name>
+        <docblock line="54">
+          <description>returns a list of all types declared in wsdl</description>
+          <long-description/>
+          <tag line="54" name="return" description="a list of objects used by the service" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="72" package="Default">
+        <name>keywordSearch</name>
+        <full_name>keywordSearch</full_name>
+        <docblock line="64">
+          <description>returns Resource from a keyword query into the registry</description>
+          <long-description/>
+          <tag line="64" name="param" description="keywords a list of words" type="string" variable="$keywords">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="64" name="param" description="orValues if true, apply multiple word/phrase constraints with a logical OR; if false, apply with a logical AND" type="boolean" variable="$orValues">
+            <type by_reference="false">boolean</type>
+          </tag>
+          <tag line="64" name="param" description="from the minimum position in the complete set of matched records of the range of records to be returned" type="int" variable="$from">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="64" name="param" description="to the maximum number of matched records to return. The service may choose to return fewer." type="int" variable="$to">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="64" name="return" description="" type="\SimpleXMLElement">
+            <type by_reference="false">\SimpleXMLElement</type>
+          </tag>
+        </docblock>
+        <argument line="72">
+          <name>$keywords</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="72">
+          <name>$orValues</name>
+          <default>false</default>
+          <type/>
+        </argument>
+        <argument line="72">
+          <name>$from</name>
+          <default>1</default>
+          <type/>
+        </argument>
+        <argument line="72">
+          <name>$to</name>
+          <default>null</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="85" package="Default">
+        <name>keywordSearchIdOnly</name>
+        <full_name>keywordSearchIdOnly</full_name>
+        <docblock line="77">
+          <description>searches registry according to a list of words, returns only an array of identifiers</description>
+          <long-description/>
+          <tag line="77" name="param" description="keywords a list of words" type="string" variable="$keywords">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="77" name="param" description="orValues if true, apply multiple word/phrase constraints with a logical OR; if false, apply with a logical AND" type="boolean" variable="$orValues">
+            <type by_reference="false">boolean</type>
+          </tag>
+          <tag line="77" name="param" description="from the minimum position in the complete set of matched records of the range of records to be returned" type="int" variable="$from">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="77" name="param" description="to the maximum number of matched records to return. The service may choose to return fewer." type="int" variable="$to">
+            <type by_reference="false">int</type>
+          </tag>
+          <tag line="77" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="85">
+          <name>$keywords</name>
+          <default/>
+          <type/>
+        </argument>
+        <argument line="85">
+          <name>$orValues</name>
+          <default>false</default>
+          <type/>
+        </argument>
+        <argument line="85">
+          <name>$from</name>
+          <default>1</default>
+          <type/>
+        </argument>
+        <argument line="85">
+          <name>$to</name>
+          <default>5</default>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="101" package="Default">
+        <name>getResource</name>
+        <full_name>getResource</full_name>
+        <docblock line="96">
+          <description>finds a resource from its identifier</description>
+          <long-description/>
+          <tag line="96" name="param" description="identifier" type="string" variable="$identifier">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="96" name="return" description="" type="\SimpleXMLElement">
+            <type by_reference="false">\SimpleXMLElement</type>
+          </tag>
+        </docblock>
+        <argument line="101">
+          <name>$identifier</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="110" package="Default">
+        <name>getIdentity</name>
+        <full_name>getIdentity</full_name>
+        <docblock line="106">
+          <description>returns registry info</description>
+          <long-description/>
+          <tag line="106" name="return" description="" type="\SimpleXMLElement">
+            <type by_reference="false">\SimpleXMLElement</type>
+          </tag>
+        </docblock>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="120" package="Default">
+        <name>xquerySearch</name>
+        <full_name>xquerySearch</full_name>
+        <docblock line="115">
+          <description>does an XQuery search in the registry</description>
+          <long-description/>
+          <tag line="115" name="param" description="xquery an xquery request" type="string" variable="$xquery">
+            <type by_reference="false">string</type>
+          </tag>
+          <tag line="115" name="return" description="" type="\SimpleXMLElement">
+            <type by_reference="false">\SimpleXMLElement</type>
+          </tag>
+        </docblock>
+        <argument line="120">
+          <name>$xquery</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="false" visibility="public" namespace="global" line="129" package="Default">
+        <name>getTapServices</name>
+        <full_name>getTapServices</full_name>
+        <docblock line="125">
+          <description>get all tap Resources in the registry from an xquery request</description>
+          <long-description/>
+          <tag line="125" name="return" description="" type="\SimpleXMLElement">
+            <type by_reference="false">\SimpleXMLElement</type>
+          </tag>
+        </docblock>
+      </method>
+    </class>
+    <class final="false" abstract="false" namespace="global" line="144" package="Default">
+      <extends/>
+      <name>SearchResponseParser</name>
+      <full_name>\SearchResponseParser</full_name>
+      <docblock line="141">
+        <description>Parses a SimpleXMLObject containing a SearchResponse into a SOAP response</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="150" package="Default">
+        <name>getSearchResponse</name>
+        <full_name>getSearchResponse</full_name>
+        <docblock line="145">
+          <description>returns a SearchResponse</description>
+          <long-description/>
+          <tag line="145" name="param" description="xml" type="\SimpleXMLObject" variable="$xml">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="145" name="return" description="" type="\SimpleXMLObject">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+        </docblock>
+        <argument line="150">
+          <name>$xml</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="165" package="Default">
+        <name>getVOResource</name>
+        <full_name>getVOResource</full_name>
+        <docblock line="160">
+          <description>returns a VOResource</description>
+          <long-description/>
+          <tag line="160" name="param" description="xml" type="\SimpleXMLObject" variable="$xml">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="160" name="return" description="" type="\SimpleXMLObject">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+        </docblock>
+        <argument line="165">
+          <name>$xml</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="181" package="Default">
+        <name>getResources</name>
+        <full_name>getResources</full_name>
+        <docblock line="176">
+          <description>returns an array of Resource</description>
+          <long-description/>
+          <tag line="176" name="param" description="xml" type="\SimpleXMLObject" variable="$xml">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="176" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="181">
+          <name>$xml</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <class final="false" abstract="false" namespace="global" line="191" package="Default">
+      <extends/>
+      <name>XQueryResponseParser</name>
+      <full_name>\XQueryResponseParser</full_name>
+      <docblock line="188">
+        <description>Parses a SimpleXMLObject containing a XQueryResponse into a SOAP response</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="197" package="Default">
+        <name>getResources</name>
+        <full_name>getResources</full_name>
+        <docblock line="192">
+          <description>returns an array of Resource</description>
+          <long-description/>
+          <tag line="192" name="param" description="xml" type="\SimpleXMLObject" variable="$xml">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="192" name="return" description="" type="array">
+            <type by_reference="false">array</type>
+          </tag>
+        </docblock>
+        <argument line="197">
+          <name>$xml</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <class final="false" abstract="false" namespace="global" line="212" package="Default">
+      <extends/>
+      <name>ResourceParser</name>
+      <full_name>\ResourceParser</full_name>
+      <docblock line="209">
+        <description>Parses a Resource SimpleXMLObject containing a Resource</description>
+        <long-description/>
+      </docblock>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="218" package="Default">
+        <name>getCreated</name>
+        <full_name>getCreated</full_name>
+        <docblock line="213">
+          <description>returns creation date of a resource</description>
+          <long-description/>
+          <tag line="213" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="213" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="218">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="227" package="Default">
+        <name>getStatus</name>
+        <full_name>getStatus</full_name>
+        <docblock line="222">
+          <description>returns status of a resource</description>
+          <long-description/>
+          <tag line="222" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="222" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="227">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="236" package="Default">
+        <name>getUpdated</name>
+        <full_name>getUpdated</full_name>
+        <docblock line="231">
+          <description>returns last update date of a resource</description>
+          <long-description/>
+          <tag line="231" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="231" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="236">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="245" package="Default">
+        <name>getCuration</name>
+        <full_name>getCuration</full_name>
+        <docblock line="240">
+          <description>returns Curation informations</description>
+          <long-description/>
+          <tag line="240" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="240" name="return" description="" type="\SimpleXMLObject">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+        </docblock>
+        <argument line="245">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="257" package="Default">
+        <name>getTitle</name>
+        <full_name>getTitle</full_name>
+        <docblock line="252">
+          <description>returns title of a resource</description>
+          <long-description/>
+          <tag line="252" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="252" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="257">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="269" package="Default">
+        <name>getContent</name>
+        <full_name>getContent</full_name>
+        <docblock line="264">
+          <description>returns Content information</description>
+          <long-description/>
+          <tag line="264" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="264" name="return" description="" type="\SimpleXMLObject">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+        </docblock>
+        <argument line="269">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="281" package="Default">
+        <name>getTapCapability</name>
+        <full_name>getTapCapability</full_name>
+        <docblock line="276">
+          <description>returns Capability information for Tap interface</description>
+          <long-description/>
+          <tag line="276" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="276" name="return" description="" type="\SimpleXMLObject">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+        </docblock>
+        <argument line="281">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="293" package="Default">
+        <name>getTapAccessUrl</name>
+        <full_name>getTapAccessUrl</full_name>
+        <docblock line="288">
+          <description>returns url of Tap interface</description>
+          <long-description/>
+          <tag line="288" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="288" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="293">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="305" package="Default">
+        <name>getTapVersion</name>
+        <full_name>getTapVersion</full_name>
+        <docblock line="300">
+          <description>returns VAMDC Tap standard version</description>
+          <long-description/>
+          <tag line="300" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="300" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="305">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="317" package="Default">
+        <name>getCapabilities</name>
+        <full_name>getCapabilities</full_name>
+        <docblock line="312">
+          <description>returns Capability informations for VOSI capabilities</description>
+          <long-description/>
+          <tag line="312" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="312" name="return" description="" type="\SimpleXMLObject">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+        </docblock>
+        <argument line="317">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="329" package="Default">
+        <name>getCapabilitiesAccessUrl</name>
+        <full_name>getCapabilitiesAccessUrl</full_name>
+        <docblock line="324">
+          <description>returns url of VOSI capabilities</description>
+          <long-description/>
+          <tag line="324" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="324" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="329">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="341" package="Default">
+        <name>getAvailability</name>
+        <full_name>getAvailability</full_name>
+        <docblock line="336">
+          <description>returns Capability informations for VOSI availability</description>
+          <long-description/>
+          <tag line="336" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="336" name="return" description="" type="\SimpleXMLObject">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+        </docblock>
+        <argument line="341">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+      <method final="false" abstract="false" static="true" visibility="public" namespace="global" line="353" package="Default">
+        <name>getAvailabilityAccessUrl</name>
+        <full_name>getAvailabilityAccessUrl</full_name>
+        <docblock line="348">
+          <description>returns url of VOSI availability</description>
+          <long-description/>
+          <tag line="348" name="param" description="resource" type="\SimpleXMLObject" variable="$resource">
+            <type by_reference="false">\SimpleXMLObject</type>
+          </tag>
+          <tag line="348" name="return" description="" type="string">
+            <type by_reference="false">string</type>
+          </tag>
+        </docblock>
+        <argument line="353">
+          <name>$resource</name>
+          <default/>
+          <type/>
+        </argument>
+      </method>
+    </class>
+    <parse_markers>
+      <error line="0" code="50007">No page-level DocBlock was found in file registry_parser.php</error>
+      <error line="37" code="50012">No short description for method __construct()</error>
+    </parse_markers>
+  </file>
+  <package name="Default" full_name="Default"/>
+  <namespace name="global" full_name="global"/>
+  <marker count="0">todo</marker>
+  <marker count="0">fixme</marker>
+  <deprecated count="0"/>
+</project>

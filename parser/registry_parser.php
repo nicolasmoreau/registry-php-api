@@ -1,12 +1,43 @@
 <?php
 
+/**
+ * An API to help querying VAMDC registry via SOAP
+ * 
+ */
+
+
+/**
+ * ivo id of tap services
+ */
 define('IVO_VAMDC_TAP', 'ivo://vamdc/std/VAMDC-TAP');
-define('IVO_CAPABILITY', 'ivo://ivoa.net/std/VOSI#availability');
+
+/**
+ * ivo id of capabilities interface
+ */
+define('IVO_CAPABILITY', 'ivo://ivoa.net/std/VOSI#capabilities');
+
+/**
+ * ivo id of availability interface
+ */
 define('IVO_AVAILABILITY', 'ivo://ivoa.net/std/VOSI#availability');
 
+/**
+ * Object doing SOAP request against a registry
+ */
 class Requester{
+    /**
+     * wsdl of registry containing 11.12 version of services
+     */
     public static $REGISTRY_11_12 = 'http://registry.vamdc.eu/registry-11.12/services/RegistryQueryv1_0?wsdl';
+    
+    /**
+     * wsdl of registry containing 12.07 version of services
+     */
     public static $REGISTRY_12_07 = 'http://registry.vamdc.eu/registry-12.07/services/RegistryQueryv1_0?wsdl';
+    
+    /**
+     * client object
+     */
     private $_client = null;
     
     /**
@@ -17,6 +48,7 @@ class Requester{
     }
     
     /**
+     * returns a list of all functions declared in wsdl
      * @return array A list of function provided by the service
      */
     public function getFunctions(){
@@ -26,6 +58,7 @@ class Requester{
     }
     
     /**
+    * returns a list of all types declared in wsdl 
     * @return array a list of objects used by the service
     */
     public function getTypes(){
@@ -48,7 +81,7 @@ class Requester{
     }    
     
     /**
-     * search registry according to a list of words, returns only an array of identifiers
+     * searches registry according to a list of words, returns only an array of identifiers
      * @param string keywords a list of words
      * @param boolean orValues if true, apply multiple word/phrase constraints with a logical OR; if false, apply with a logical AND 
      * @param int from the minimum position in the complete set of matched records of the range of records to be returned
@@ -67,7 +100,7 @@ class Requester{
     }   
    
     /**
-     *  find a resource from its identifier
+     *  finds a resource from its identifier
      * @param string identifier
      * @return SimpleXMLElement
      */
@@ -86,7 +119,7 @@ class Requester{
     }   
         
     /**
-     * do an XQuery search in the registry
+     * does an XQuery search in the registry
      * @param string xquery an xquery request
      * @return SimpleXMLElement
      */
@@ -112,7 +145,7 @@ class Requester{
 }
 
 /**
- * Parse a SimpleXMLObject containing a SearchResponse into a SOAP response
+ * Parses a SimpleXMLObject containing a SearchResponse into a SOAP response
  */
 class SearchResponseParser{    
     /**
@@ -159,9 +192,14 @@ class SearchResponseParser{
 }   
 
 /**
- * Parse a SimpleXMLObject containing a XQueryResponse into a SOAP response
+ * Parses a SimpleXMLObject containing a XQueryResponse into a SOAP response
  */
 class XQueryResponseParser{        
+    /**
+    * returns an array of Resource
+    * @param SimpleXMLObject xml
+    * @return array
+    */
     public static function getResources($xml){
         foreach($xml->children('soap', true) as $el){    
             if ($el->getName() == 'Body'){                
@@ -175,11 +213,11 @@ class XQueryResponseParser{
 }  
  
 /**
- * Parse a Resource SimpleXMLObject containing a Resource
+ * Parses a Resource SimpleXMLObject containing a Resource
  */
 class ResourceParser{
     /**
-     * return creation date of a resource
+     * returns creation date of a resource
      * @param SimpleXMLObject resource
      * @return string
      */
@@ -188,7 +226,7 @@ class ResourceParser{
     }
     
     /**
-     * return status of a resource
+     * returns status of a resource
      * @param SimpleXMLObject resource
      * @return string
      */
@@ -197,7 +235,7 @@ class ResourceParser{
     }
     
     /**
-     * return last update date of a resource
+     * returns last update date of a resource
      * @param SimpleXMLObject resource
      * @return string
      */
@@ -206,7 +244,7 @@ class ResourceParser{
     }
 
     /**
-     * return Curation informations
+     * returns Curation informations
      * @param SimpleXMLObject resource
      * @return SimpleXMLObject
      */
@@ -218,7 +256,7 @@ class ResourceParser{
     }    
     
     /**
-     * return title of a resource
+     * returns title of a resource
      * @param SimpleXMLObject resource
      * @return string
      */
@@ -230,7 +268,7 @@ class ResourceParser{
     }      
     
     /**
-     * return Content information
+     * returns Content information
      * @param SimpleXMLObject resource
      * @return SimpleXMLObject
      */
@@ -242,7 +280,7 @@ class ResourceParser{
     }
     
     /**
-     * return Capability information for Tap interface
+     * returns Capability information for Tap interface
      * @param SimpleXMLObject resource
      * @return SimpleXMLObject
      */
@@ -254,7 +292,7 @@ class ResourceParser{
     }
     
     /**
-     * return url of Tap interface
+     * returns url of Tap interface
      * @param SimpleXMLObject resource
      * @return string
      */
@@ -266,7 +304,7 @@ class ResourceParser{
     }
     
      /**
-     * return VAMDC Tap standard version
+     * returns VAMDC Tap standard version
      * @param SimpleXMLObject resource
      * @return string
      */
@@ -278,7 +316,7 @@ class ResourceParser{
     }    
    
     /**
-     * return Capability informations for VOSI capabilities 
+     * returns Capability informations for VOSI capabilities 
      * @param SimpleXMLObject resource
      * @return SimpleXMLObject
      */
@@ -290,7 +328,7 @@ class ResourceParser{
     }
     
     /**
-     * return url of VOSI capabilities 
+     * returns url of VOSI capabilities 
      * @param SimpleXMLObject resource
      * @return string
      */
@@ -302,7 +340,7 @@ class ResourceParser{
     }    
     
     /**
-     * return Capability informations for VOSI availability 
+     * returns Capability informations for VOSI availability 
      * @param SimpleXMLObject resource
      * @return SimpleXMLObject
      */
@@ -314,7 +352,7 @@ class ResourceParser{
     }
     
     /**
-     * return url of VOSI availability 
+     * returns url of VOSI availability 
      * @param SimpleXMLObject resource
      * @return string
      */
