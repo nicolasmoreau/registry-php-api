@@ -1,115 +1,55 @@
 <?php
 include('./parser/registry_parser.php');
-//$wsdl = 'http://www.clia.livestockid.ca/CLTS/public/help/en/webservices/WebServiceAnimalSearch/IAnimalSearchWSv2.wsdl';
-$wsdl = 'http://registry.vamdc.eu/registry-11.12/services/RegistryQueryv1_0?wsdl';
-$client = new SOAPClient($wsdl, array('trace'=>1));
-$functions = $client->__getFunctions();
 
-/*
-foreach ($functions AS $function) {
-print $function."\n\n";
-}*/
+//initializes registry client
+$client = new Requester(Requester::$REGISTRY_12_07);
+$request = 'tap basecol';
 
-
-$ks = array('keywords'=>'tap', 'orValues'=>false, 'from'=>1, 'to'=>5, 'identifiersOnly'=>false);
-$result = $client->KeywordSearch($ks);
-
-$xml = simplexml_load_string($client->__getLastResponse());
-//echo $client->__getLastResponse();
-$voresources = SearchResponseParser::getVOResource($xml);
-$resources = SearchResponseParser::getResources($xml);
-
-foreach($resources as $res){
-    $curation = ResourceParser::getCuration($res);
-    //$cap = ResourceParser::getTapCapability($res);
-    $tap_access = ResourceParser::getTapAccessUrl($res);
-    if($tap_access != null){
-        echo ResourceParser::getTitle($res).' is a tap service : '.$tap_access."\n";
-        echo 'creation date : '.ResourceParser::getCreated($res)."\n";   
-        echo 'published by : '.$curation->publisher."\n";
-        echo "\n";
-    }
-
-}
-//echo ResourceParser::getCreated($resources[0]);
-
-/*
-foreach($xml->children('soap', true) as $el)
-{    
-    if ($el->getName() == 'Body')
-    {
-        $resource_resp = $el->children('riw', true);
-        $resource = $resource_resp->children('ri', true);
-        
-        //get attributes
-        echo $resource->attributes()->updated;
-        echo "\n";
-        echo $resource->attributes()->status;
-        echo "\n";
-        //print_r($resource->xpath('./title'));
+//request by keywords example
+$resources = $client->keywordSearch($request);
+echo "\n\nResult of keywords search : $request \n";
+foreach($resources as $resource){
+    echo "--- Resource description : \n";
+    echo "resource created : ".ResourceParser::getCreated($resource)."\n";
+    echo "resource title : ".ResourceParser::getTitle($resource)."\n";
+    echo "tap access url : ".ResourceParser::getTapAccessUrl($resource)."\n";
     
-        $interface = $resource->xpath('./capability[@standardID="ivo://vamdc/std/VAMDC-TAP"]/interface');
-        echo $interface[0]->accessURL;
-
-        
-        //foreach($resource->children() as $field){
-        //    print_r($field);
-        //} 
-    }
-}
-*/
-
-/*
-$res = $client->getResource(array('identifier'=>$resource));
-$xml = simplexml_load_string($client->__getLastResponse());
-$ns = $xml->getNamespaces(true);
-echo $resource;
-foreach($xml->children('soap', true) as $el)
-{    
-    if ($el->getName() == 'Body')
-    {
-        $resource_resp = $el->children('riw', true);
-        $resource = $resource_resp->children('ri', true);
-        
-        //get attributes
-        echo $resource->attributes()->updated;
-        echo "\n";
-        echo $resource->attributes()->status;
-        echo "\n";
-        //print_r($resource->xpath('./title'));
+    //get a curation object
+    $curation = ResourceParser::getCuration($resource);
+    echo "publisher : ".$curation->publisher."\n";
     
-        $interface = $resource->xpath('./capability[@standardID="ivo://vamdc/std/VAMDC-TAP"]/interface');
-        echo $interface[0]->accessURL;
-
-        
-        //foreach($resource->children() as $field){
-        //    print_r($field);
-        //} 
-    }
+    echo "capabilities access url : ".ResourceParser::getCapabilitiesAccessUrl($resource)."\n";
+    echo "availability access url : ".ResourceParser::getAvailabilityAccessUrl($resource)."\n";
+    echo "tap version : ".ResourceParser::getTapVersion($resource)."\n";
+    
+    //uses a capability object
+    $capability = ResourceParser::getTapCapability($resource);
+    foreach($capability->sampleQuery as $query)
+        echo "sample query : ".$query."\n";
+    foreach($capability->returnable as $returnable)
+        echo "returnable : ".$returnable."\n";
+    
+    echo "---\n";
 }
-*/
 
-/*
-if(is_null($res))
-    echo "$res is null";
-else
-    echo "$res is not null";
-*/
-//print_r($result);
+//get only ivo ids 
+$ivo_ids = $client->keywordSearchIdOnly($request);
+echo "\n\nResult of keywords search : $request \n";
+foreach($ivo_ids as $id){
+    echo "--- Resource ids : \n";
+    echo "$id \n";
+    echo "---\n";
+}
 
-/*
-foreach($result->VOResources->Resource as $resource){
-    print_r($resource);
-    die();
-	echo 'title : '.$resource->title."\n";
-	echo 'id : '.$resource->identifier."\n\n";
-    echo 'capability : '.$resource->capability."\n\n";
-}*/
-
-
-/*
-$types = $client->__getTypes();
-foreach ($types AS $type) {
-print $type."\n\n";
-}*/
+//get all tap services
+$resources = $client->getTapServices(); 
+echo "\n\nResult of keywords search : $request \n";
+foreach($resources as $resource){
+    echo "--- Resource description : \n";
+    echo "resource title : ".ResourceParser::getTitle($resource)."\n";
+    echo "tap access url : ".ResourceParser::getTapAccessUrl($resource)."\n";
+    echo "capabilities access url : ".ResourceParser::getCapabilitiesAccessUrl($resource)."\n";
+    echo "availability access url : ".ResourceParser::getAvailabilityAccessUrl($resource)."\n";
+    echo "---\n";
+}
 ?>
