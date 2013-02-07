@@ -1,10 +1,13 @@
 <?php
-
 /**
  * An API to help querying VAMDC registry via SOAP
  * 
  */
-
+ 
+/**
+* @author Nicolas Moreau
+* @author Nicolas Moreau <nicolas.moreau@obspm.fr>
+*/
 
 /**
  * ivo id of tap services
